@@ -21,6 +21,7 @@ In this example, the sum of the results would be 4 + 3 + 2 = 9.
 What is the sum of each row's result in your puzzle input?
 
 Spreadsheet:
+
     3458 3471  163   1299  170   4200  2425  167   3636  4001  4162  115   2859  130   4075  4269
     2777 2712  120   2569  2530  3035  1818  32 491   872   113   92 2526  477   138   1360
     2316 35 168   174   1404  1437  2631  1863  1127  640   1745  171   2391  2587  214   193
