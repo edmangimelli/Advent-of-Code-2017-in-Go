@@ -2,11 +2,11 @@ Instead of trying to approach this problem with a coordinate system, I wondered 
 
 Here's the example spiral given:
 
-147  142  133  122   59
-304    5    4    2   57
-330   10    1    1   54
-351   11   23   25   26
-362  747  806--->   ...
+    147  142  133  122   59
+    304    5    4    2   57
+    330   10    1    1   54
+    351   11   23   25   26
+    362  747  806--->   ...
 
 You could unravel it and write it this way:
 
