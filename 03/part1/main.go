@@ -6,40 +6,6 @@ import (
 	"os"
 )
 
-/*
-
-using their example:
-
-17  16  15  14  13
-18   5   4   3  12
-19   6   1   2  11
-20   7   8   9  10
-21  22  23---> ...
-
-starting from 1, you move like so:
-r u l l d d r r r u u u l l l l d d d d
-
-here's the pattern:
-r 1
-u 1
-l 2
-d 2
-r 3
-u 3
-l 4
-d 4
-...and so on
-
-my code below simply steps through a graph
-(assuming 1's spot is [0,0])
-moving in the spiral pattern, all the while
-counting (actually, decrementing) and testing
-to see if we reached our number.
-If we have, we simply add the x and y coordinates
-(absolute value) and we have our # of steps.
-
-*/
-
 var data = 325489
 
 var x, y = 0, 0
