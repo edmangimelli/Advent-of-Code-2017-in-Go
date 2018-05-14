@@ -1,19 +1,5 @@
 package main
 
-/*
-  Whoa! I don't think I've ever made my computer work so hard!
-  It took so long to get the answer, I thought for sure my code
-  was broken. So, I started printing the state of the current
-  bank and capped the loop to 1,000,000 cycles, just to see
-  what it was doing. To my surprise, it found the answer!
-  The answer being over 4000 cycles makes the lengthiness of
-  the computation time make sense. When you get past 4000
-  cycles, you're getting into 8,000,000 (4001*(4000/2)) state
-  comparisons per cycle. 
-  Print the current bank state at each cycle for a neat visual
-  effect!
-*/
-
 import (
 	"fmt"
 	"strings"
@@ -31,6 +17,8 @@ func init() {
 	}
 }
 
+var stateComparisons = 0
+
 func main() {
 	start := time.Now()
 	cycles := 0
@@ -44,6 +32,7 @@ func main() {
 			stop := time.Now()
 			fmt.Printf("%v cycles\n", cycles)
 			fmt.Printf("%v elapsed\n", stop.Sub(start))
+			fmt.Printf("%v state comparisons performed\n", stateComparisons)
 			break
 		}
 
@@ -72,6 +61,7 @@ func matchingStates(states [][]int) bool {
 		next:
 		for j := i+1; j < len(states); j++ {
 			for b := range states[i] {
+				stateComparisons++
 				if states[i][b] != states[j][b] {
 					continue next
 				}
