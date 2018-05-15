@@ -22,7 +22,7 @@ func init() {
 func main() {
 	start := time.Now()
 	cycles := 0
-	states := make([][]int, 0)
+	states := make([][]int, 0, 5000)
 
 	for {
 		temp := make([]int, len(banks))
@@ -32,7 +32,7 @@ func main() {
 			stop := time.Now()
 			fmt.Printf("%v cycles\n", cycles)
 			fmt.Printf("%v elapsed\n", stop.Sub(start))
-			//fmt.Printf("%v bank comparisons performed\n", bankComparisons)
+			//fmt.Printf("%v state comparisons performed\n", bankComparisons)
 			break
 		}
 
@@ -57,28 +57,18 @@ func main() {
 }
 
 func matchingStates(states [][]int) bool {
-	for i := 0; i < len(states)-1; i++ {
-		next:
-		for j := i+1; j < len(states); j++ {
-			for b := range states[i] {
-				//bankComparisons++
-				if states[i][b] != states[j][b] {
-					continue next
-				}
+	len := len(states)
+	lastState := states[len-1]
+	next:
+	for i := 0; i < len-1; i++ {
+		for b := range states[i] {
+			//bankComparisons++
+			if states[i][b] != lastState[b] {
+				continue next
 			}
-			return true
 		}
+		return true
 	}
 	return false
 }
 
-/*
-cycles = 0
-loop
-	save state
-	compare to other states
-		if one states equals another, done
-	find largest number, ties go to the earliest location (simply go backwards)
-	empty into register
-	distribute until empty
-*/

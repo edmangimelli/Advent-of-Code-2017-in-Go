@@ -17,7 +17,7 @@ func init() {
 	}
 }
 
-var stateComparisons = 0
+//var bankComparisons = 0
 
 func main() {
 	start := time.Now()
@@ -32,7 +32,7 @@ func main() {
 			stop := time.Now()
 			fmt.Printf("%v cycles\n", cycles)
 			fmt.Printf("%v elapsed\n", stop.Sub(start))
-			fmt.Printf("%v state comparisons performed\n", stateComparisons)
+			//fmt.Printf("%v state comparisons performed\n", bankComparisons)
 			break
 		}
 
@@ -62,7 +62,7 @@ func matchingStates(states [][]int) bool {
 	next:
 	for i := 0; i < len-1; i++ {
 		for b := range states[i] {
-			stateComparisons++
+			//bankComparisons++
 			if states[i][b] != lastState[b] {
 				continue next
 			}
